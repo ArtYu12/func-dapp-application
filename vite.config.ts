@@ -1,23 +1,8 @@
 import { defineConfig } from 'vite';
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
-import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill';
+import react from '@vitejs/plugin-react';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 export default defineConfig({
-  base: "/func-dapp-application",
-  resolve: {
-    alias: {
-      buffer: 'buffer', 
-    },
-  },
-  optimizeDeps: {
-    esbuildOptions: {
-      plugins: [
-        NodeGlobalsPolyfillPlugin({
-          process: true,
-          buffer: true,
-        }),
-        NodeModulesPolyfillPlugin(),
-      ],
-    },
-  },
+  plugins: [react(), nodePolyfills()],
+  base: '/func-dapp-application',
 });
