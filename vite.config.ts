@@ -8,7 +8,6 @@ export default defineConfig({
     alias: {
       buffer: 'buffer', 
     },
-    
   },
   optimizeDeps: {
     esbuildOptions: {
